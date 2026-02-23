@@ -8,19 +8,28 @@
     </head>
 <body><h1>Pets</h1>
 <hr/>
-<table>
+<table class="table table-bordered table-striped table-hover">
+<style>
+td, th {
+    padding: 12px 20px;
+}
+</style>
+
     <tr>
         
         <th>ID</th>
         <th>Name</th>
         <th>Kind</th>
+        <th>Age</th>
         <th>Food</th>
+        <th>Weight</th>
         </tr>
         {% for pet in pets %}
         <tr>
             {% for item in pet %}
             <td>{{ item }}</td>
             {% endfor %}
+             <td><a href="/update/{{pet[0]}}"><span class="material-symbols-outlined">edit</span></a></td>
              <td><a href="/delete/{{pet[0]}}">Delete</a></td>
         </tr>
         {% endfor %}
